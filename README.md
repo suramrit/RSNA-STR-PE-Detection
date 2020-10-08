@@ -5,6 +5,7 @@
   ## Whats in the dataset:
     - Csv files
     - Images 
+    
   ## File descriptions
   - test  - all test images
   - train - all train images (note that your submission kernels will NOT have access to this set of images, so you must build your models elsewhere and          
@@ -13,7 +14,7 @@
                             prediction.
   - train.csv - contains UIDs and all labels.
   - test.csv - contains UIDs.
-  
+
   ## Images: 
   - The images are grouped in directories by study and series. They are in DICOM format, and contain additional metadata that may be relevant to the competition. Each image has a unique identifier - SOPInstanceUID.
   - The location for each image is given by: "<-StudyInstanceUID->/<-SeriesInstanceUID->/<-SOPInstanceUID->.dcm"
@@ -22,10 +23,10 @@
   - train.csv contains the three UIDs noted above, and a number of labels. Some are targets which require predictions, and some are informational [See data fields below]
   - test.csv contains only the three UIDs. 
   
-# What to predict:
-  - Predicting a number of labels, at both the image and study level [See Evaluation Section below for more details]
+  ## What to predict:
+  - Predicting a number of labels, at both the image and study level [See Evaluation at https://www.kaggle.com/c/rsna-str-pulmonary-embolism-detection/overview/evaluation for more details]
   
-# Data Fields:  
+  ## Data Fields:  
      *todo : Label which are target fields
   - StudyInstanceUID - unique ID for each study (exam) in the data.
   - SeriesInstanceUID - unique ID for each series within the study.
@@ -45,3 +46,13 @@
   - central_pe - exam-level, indicates that there is PE present in the center of the images in the study
   - indeterminate -exam-level, indicates that while the study is not negative for PE, an ultimate set of exam-level labels could not be created, due to QA issues
   
+  ## Relation between labels
+  - The following flowchart shows the different relationships between the labels
+  - There are four labels in the training set that are purely informational and require no predictions. 
+      - QA Contrast 
+      - QA Motion
+      - True filling defect not PE
+      - Flow artifact
+  - They are not scored, but are meant to be used as helpers.
+  - Acute PE is not an explicit label, but is implied by the lack of Chronic PE or Acute and Chronic PE.
+  ![Flow](/repo_images/PE_label_flowchart.jpg)
