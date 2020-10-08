@@ -1,7 +1,7 @@
-- Competition details: https://www.kaggle.com/c/rsna-str-pulmonary-embolism-detection/dat
-
 # Highlights:
-  
+
+  #### Competition details: https://www.kaggle.com/c/rsna-str-pulmonary-embolism-detection/dat
+
   ## Whats in the dataset:
     - Csv files
     - Images 
